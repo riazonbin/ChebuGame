@@ -6,17 +6,23 @@ public class OrangeSpawningScript : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D _orangePrefab;
-    float time = 5;
-    public void Spawn()
+    private const int cooldownDefaultTime = 5;
+
+    private void Start()
     {
+        StartCoroutine(Spawn());
     }
+
+
     private void Update()
     {
-        time = time - Time.deltaTime;
-        if (time < 0)
-        {
-            Instantiate(_orangePrefab, gameObject.transform.GetChild(Random.Range(0, 4)));
-            time = 5;
-        }
+
+    }
+
+    public IEnumerator Spawn()
+    {
+        yield return new WaitForSeconds(cooldownDefaultTime);
+        Instantiate(_orangePrefab, gameObject.transform.GetChild(Random.Range(0, 4)));
+        yield return StartCoroutine(Spawn());
     }
 }
