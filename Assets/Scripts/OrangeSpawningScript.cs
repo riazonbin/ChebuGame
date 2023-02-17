@@ -22,7 +22,17 @@ public class OrangeSpawningScript : MonoBehaviour
     public IEnumerator Spawn()
     {
         yield return new WaitForSeconds(cooldownDefaultTime);
-        Instantiate(_orangePrefab, gameObject.transform.GetChild(Random.Range(0, 4)));
+
+        var indexOfSpawnPoint = Random.Range(0, 4);
+
+        var spawnPoint = gameObject.transform;
+
+        if(gameObject.transform.childCount == 4 ) 
+        {
+            spawnPoint = gameObject.transform.GetChild(indexOfSpawnPoint);
+        }
+
+        Instantiate(_orangePrefab, spawnPoint);
         yield return StartCoroutine(Spawn());
     }
 }

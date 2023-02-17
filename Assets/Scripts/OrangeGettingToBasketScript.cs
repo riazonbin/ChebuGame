@@ -1,11 +1,10 @@
+using Assets.Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GettingAnOrangeToBasketScript : MonoBehaviour
+public class OrangeGettingToBasketScript : MonoBehaviour
 {
-    [SerializeField]
-    GameObject orangePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +19,9 @@ public class GettingAnOrangeToBasketScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject == orangePrefab.gameObject) 
+        if (collision.gameObject.name == "basket")
         {
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }
