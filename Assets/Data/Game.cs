@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Assets.Data
     {
         public int lifeCount;
         public int gainedOranges;
+        public PositionsEnum currentPosition;
 
         public Game() 
         {

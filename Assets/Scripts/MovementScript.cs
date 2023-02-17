@@ -34,7 +34,7 @@ public class MovementScript : MonoBehaviour
         }
 
         var target = transform.position;
-        float platformHalfSize = GetComponent<PolygonCollider2D>().bounds.size.x / 2;
+        float platformHalfSize = GetComponent<SpriteRenderer>().bounds.size.x / 2;
         // Calculate new position of platform
         target.x += horizontalInput;
         //Restrict new position by left and right borders
