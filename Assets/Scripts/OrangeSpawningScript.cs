@@ -29,8 +29,9 @@ public class OrangeSpawningScript : MonoBehaviour
 
         if(gameObject.transform.childCount == 4 ) 
         {
-            spawnPoint = gameObject.transform.GetChild(indexOfSpawnPoint);
+
         }
+        spawnPoint = gameObject.transform.GetChild(indexOfSpawnPoint);
 
         Instantiate(_orangePrefab, spawnPoint);
         yield return StartCoroutine(Spawn());
