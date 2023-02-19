@@ -1,14 +1,13 @@
-using Assets.Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class OrangeGettingToBasketScript : MonoBehaviour
+public class GameRestartScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -17,11 +16,9 @@ public class OrangeGettingToBasketScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void RestartGame()
     {
-        if (collision.gameObject.name == "basket")
-        {
-            Destroy(gameObject);
-        }
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 }

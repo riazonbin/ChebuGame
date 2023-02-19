@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class StartGameScript : MonoBehaviour
 {
-    Game game;
+    public Game game;
+    [SerializeField]
+    UpdateDataOnScreenScript _updateDataOnScreenScript;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         game = new Game();
+    }
+
+    private void Start()
+    {
+        _updateDataOnScreenScript.UpdateData();
     }
 
     // Update is called once per frame
